@@ -1,0 +1,275 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+
+body {
+    text-align: right;
+    background: #0f1724;
+    color: #e6eef8;
+    margin: 0;
+    padding: 20px;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+header h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.card {
+    background: #0b1220;
+    border: 1px solid #1f2a44;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 16px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+input,
+select,
+button {
+    background: #071028;
+    border: 1px solid #21324a;
+    color: #e6eef8;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #2b7cff;
+}
+
+label {
+    font-size: 13px;
+    color: #9fb0d7;
+}
+
+.full {
+    grid-column: 1/-1;
+}
+
+.price-row {
+    display: flex;
+    gap: 8px;
+}
+
+.price-row input {
+    flex: 1;
+}
+
+button.primary {
+    background: #2b7cff;
+    border: none;
+    color: white;
+}
+
+button.ghost {
+    background: transparent;
+    border: 1px solid #2b7cff;
+}
+
+button.danger {
+    background: #f43f5e;
+    border: none;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 8px;
+    border-bottom: 1px solid #162033;
+    text-align: center;
+}
+
+th {
+    font-weight: 600;
+    color: #9fb0d7;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.pagination {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.pagination button {
+    background: #071028;
+    color: #bfe1ff;
+    border: 1px solid #21324a;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background: #1e2a44;
+}
+
+.pagination button.active {
+    background: #2b7cff;
+    color: white;
+    border-color: #2b7cff;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+    margin-top: 12px;
+}
+
+.pagination-container button {
+    background: #071028;
+    color: #bfe1ff;
+    border: 1px solid #21324a;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pagination-container button:hover {
+    background: #1e2a44;
+}
+
+.pagination-container button.active {
+    background: #2b7cff;
+    color: white;
+    border-color: #2b7cff;
+}
+
+.pagination-container .arrow {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+.stats {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.stat {
+    background: #071028;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #16293f;
+    min-width: 120px;
+}
+
+.stat b {
+    display: block;
+    font-size: 18px;
+}
+
+.toasts {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.toast {
+    background: #071428;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #2b7cff;
+    color: #dfefff;
+}
+
+@media(max-width:900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .price-row {
+        flex-direction: column;
+    }
+
+    .grid .full {
+        grid-column: 1/-1;
+    }
+}
+
+@media(max-width:600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.light {
+    background: #f6f9ff;
+    color: #071028;
+}
+
+body.light .card {
+    background: #fff;
+    border: 1px solid #dbe7ff;
+}
+
+body.light input,
+body.light select,
+body.light button {
+    background: #fff;
+    color: #071028;
+    border: 1px solid #cbdcff;
+}
+
+body.light th {
+    color: #1b2b46;
+}
+
+body.light .toast {
+    background: #fff;
+    color: #071028;
+    border: 1px solid #2b7cff;
+}
+
+body.light .stat {
+    background: #f0f4ff;
+    border: 1px solid #cbdcff;
+}

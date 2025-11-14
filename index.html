@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Product Management System - Enhanced Version</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Product Management System - Enhanced Version</h1>
+      <div class="controls">
+        <button id="toggleTheme" class="ghost">تبديل الوضع</button>
+        <button id="exportJson" class="ghost">تصدير JSON</button>
+        <button id="exportCsv" class="ghost">تصدير CSV</button>
+        <button id="exportXlsx" class="ghost">تصدير Excel</button>
+        <button id="clearAll" class="danger">حذف الكل</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <form id="productForm">
+        <div class="grid">
+          <div>
+            <label>العنوان</label>
+            <input id="title" required placeholder="مثال: سماعة بلوتوث">
+          </div>
+          <div>
+            <label>الفئة</label>
+            <input id="category" required placeholder="مثال: الكترونيات">
+          </div>
+          <div>
+            <label>العدد</label>
+            <input id="count" type="number" min="1" value="1">
+          </div>
+          <div class="full">
+            <label>أسعار (السعر، الضريبة، الإعلانات، الخصم)</label>
+            <div class="price-row">
+              <input id="price" type="number" step="0.01" placeholder="السعر" required>
+              <input id="taxes" type="number" step="0.01" placeholder="الضريبة">
+              <input id="ads" type="number" step="0.01" placeholder="الإعلانات">
+              <input id="discount" type="number" step="0.01" placeholder="الخصم">
+              <div class="item2">المجموع: <span id="calcTotal" style="font-weight:700;margin-inline-start:6px">0
+                  LE</span></div>
+            </div>
+          </div>
+          <div class="full" style="display:flex;gap:8px;justify-content:flex-start;align-items:center;margin-top:8px">
+            <button id="submitBtn" class="primary">إنشاء</button>
+            <button id="cancelEdit" type="button" class="ghost" style="display:none">إلغاء</button>
+            <div style="margin-inline-start:auto;color:#9fb0d7">الترتيب حسب:
+              <select id="sortBy">
+                <option value="">بدون</option>
+                <option value="price-asc">السعر ↑</option>
+                <option value="price-desc">السعر ↓</option>
+                <option value="title-asc">العنوان أ→ي</option>
+                <option value="title-desc">العنوان ي→أ</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section class="card" style="margin-top:12px">
+      <div class="controls">
+        <input id="searchInput" placeholder="ابحث بالعنوان أو الفئة" style="min-width:240px">
+        <input id="minPrice" type="number" placeholder="سعر أدنى">
+        <input id="maxPrice" type="number" placeholder="سعر أقصى">
+        <button id="clearFilters" class="ghost">مسح الفلاتر</button>
+        <div style="margin-inline-start:auto;display:flex;gap:8px;align-items:center">
+          <span style="color:#9fb0d7;font-size:13px">صفحة:</span>
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+
+      <div style="overflow:auto">
+        <table id="productsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>العنوان</th>
+              <th>سعر</th>
+              <th>ضريبة</th>
+              <th>إعلانات</th>
+              <th>خصم</th>
+              <th>المجموع</th>
+              <th>الفئة</th>
+              <th>تاريخ</th>
+              <th>تحكم</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="toasts" id="toasts"></div>
+  </div>
+
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
